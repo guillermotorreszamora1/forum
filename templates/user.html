@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<div class="message">
+		Name:{{user_name}}<br/>
+		Category:{{user_type}}<br/>
+		Nº posts:{{n_posts}}<br/>
+	</div>
+
+	{% if rol=='Master' %}
+	<div class="message">
+		<p>Change rol:</p>
+		<form id="rol_form" action="{{url_prefix}}/change_rol" method="post">
+			<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+			<input type="hidden" name="user_id" value="{{user_id}}">
+			<select class="" name="rol">
+				<option value="User">User</option>
+				<option value="Moderator">Moderator</option>
+				<option value="Administrator">Administrator</option>
+			</select>
+			<br/>
+			<input type="submit" value="Submit"/>
+		</form>
+	</div>
+
+	{% endif %}
+{% endblock %}

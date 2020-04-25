@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<h2 class="logintitle">Login</h2>
+	<form action="login_call" method="post">
+  <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+	User:<input id="user" name="user"/> </br></br>
+	Password:<input id="password" name="password" type="password"/> </br></br>
+	<input type="submit" value="Login"/>
+	</form>
+	<h2 class="logintitle">Register</h2>
+	<form id="formulario" action="register_call" method="post">
+	<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+	User:<input id="user" name="user" /> </br></br>
+	Password:<input id="password" name="password" type="password"/> </br></br>
+	Repeat Password: <input id="password2" name="password2" type="password"/> </br></br>
+	Email: <input id="email" name="email"/></br></br>
+	<input type="submit" value="Register"/>
+	</form>
+{% endblock %}

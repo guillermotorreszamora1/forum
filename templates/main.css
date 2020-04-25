@@ -1,0 +1,77 @@
+h2{
+	text-align: right;
+	background: #EFEFEF;
+}
+h2.categorieslist span{
+	float: left;
+}
+h2.threadTitle span{
+	position: absolute;
+	left: 45%;
+}
+table#result{
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+table#result th {
+	padding: 3px;
+	border: 1px solid #fff;
+}
+table#result tr {
+	background: #EFEFEF;
+}
+thead#tableHead th {
+	background: #A9A9A9;
+}
+.reducedth {
+	width: 90px;
+}
+.mediumth {
+	width: 200px;
+}
+div.post {
+	background: #A9A9A9;
+	padding: 2px;
+	margin: 10px;
+}
+div.post div{
+	background: #EFEFEF;
+	margin: 2px;
+}
+.user{
+	right: 10px;
+	position:fixed;
+}
+.message{
+	background: #EFEFEF;
+}
+h2.logintitle{
+	background: #EFEFEF;
+	text-align: center;
+}
+.deleteform{
+	flex-basis: 100%;
+	text-align: right;
+	margin-right: 20px;
+}
+.postheader{
+	display: flex;
+	flex-direction: row;
+}
+.thread_entry{
+	display: flex;
+	flex-direction: row;
+	border: 1px solid #fff;
+	border-bottom: 0px;
+}
+.thread_entry_b{
+	border: 1px solid #fff;
+	border-bottom: 0px;
+}
+.delete_thread{
+	flex-basis: 100%;
+	text-align: right;
+	display: inline;
+	padding: 3px;
+}

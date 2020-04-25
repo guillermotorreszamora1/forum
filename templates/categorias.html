@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<h2 class="categorieslist">
+		<span>Categories</span>
+		"Displaying {{first_cat}} to {{last_cat}}({{ n_categories }} found)"
+	</h2>
+	<div id="results">
+		<table id="result">
+			<thead id="tableHead">
+				<tr class="header">
+				<th><div>Categories</div></th>
+				<th class="reducedth">Nº hilos</th>
+				<th class="reducedth">Nº posts</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for category in categories %}
+			<tr>
+			<td><a href="{{url_prefix}}/category/{{category.id}}">{{category.name}}</td>
+			<td>{{category.n_threads}}</td>
+			<td>{{category.n_posts}}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div align="center">
+		{% if page>1 %}
+			<a href="{{url_prefix}}/categories/{{page-1}}">Prev</a>&nbsp;
+		{% endif %}
+		{{page}}
+		{% if page<max_page %}
+			<a href="{{url_prefix}}/categories/{{page+1}}">Next</a>&nbsp;
+		{% endif %}
+	</div>
+{% endblock %}

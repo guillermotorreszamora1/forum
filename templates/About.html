@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<div class="message">
+	Welcome to the forum. This forum is designed to be efficient for the user and doesn't use javascript framework
+  for that reason.Currently the are four types of users(user,moderator,administrator and master).A user can
+  create new threads and post message. A moderator can delete message from another user. A administrator can also ban
+  user and IPs, temporarly or definitive(currently the IP ban forbids register and login, but not visittings.
+  Except a extended ban that can only be applied by master).
+
+  The master is the owner of an instance of the forum(this
+  forum or a copy of it).The master can choose moderator and administrator and has direct and unlimited access to the
+  database as well as the security settings of the system where the forum is hosted.With that power the master can apply
+  a extended ban to the forum, so you can not visit to anyone and delete the message that satisfy any criteria.
+  We ask to all the master of instance of the forum to use this power wisely, because it can be use to apply censorship
+  and we, as the developers of the forum, can not avoid it
+	(if we put limits the master can modify the source code to override them).
+	</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_prefix }}/main.css"/>
+</head>
+<body>
+	<div id="header">
+		<form method="get">
+			<a href="{{ url_prefix }}">Main</a>
+			{% if user %}
+			<a href="{{url_prefix}}/logout">Logout</a>
+			{% else %}
+			<a href="{{url_prefix}}/login">Login</a>
+			{% endif %}
+			<a href="{{url_prefix}}/categories">Categories</a>
+			<a href="{{url_prefix}}/About">About</a>
+			{% if user %}
+				<span class="user">Logged as <a href="{{url_prefix}}/user/{{user_id}}">{{user}}</a></span>
+			{% endif %}
+		</form>
+	</div>
+	{% block contenido %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<h2 class="categorieslist">
+		<span>{{category_name}}</span>
+		"Displaying {{first_thread}} to {{last_thread}}({{ n_threads }} found)"
+	</h2>
+	{% if user %}
+	<a href="{{url_prefix}}/new_thread/{{category}}">
+	<button>New Thread</button></a>
+	{% endif %}
+	<div id="results">
+		<table id="result">
+			<thead id="tableHead">
+				<tr class="header">
+				<th><div>Threads</div></th>
+				<th class="reducedth">Nº posts</th>
+				<th class="mediumth">Last post</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for thread in threads %}
+			<tr>
+				<td class="thread_entry"><a href="{{url_prefix}}/thread/{{thread.thread_id}}">{{ thread.name }}</a>
+					<form class="delete_thread" action="{{url_prefix}}/delete_thread" method="POST">
+						<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+						<input type="hidden" name="category" value={{category}}/>
+						<input type="hidden" name="thread" value="{{thread.thread_id}}"/>
+						<input type="submit" value="Delete thread"/>
+					</form> </td>
+				<td class="thread_entry_b">{{ thread.n_posts }}</td>
+				<td class="thread_entry_b">{{ thread.last_post }}</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div align="center">
+		{% if page>1 %}
+			<a href="{{url_prefix}}/category/{{category}}/{{page-1}}">Prev</a>&nbsp;
+		{% endif %}
+		{{page}}
+		{% if page<max_page %}
+			<a href="{{url_prefix}}/category/{{category}}/{{page+1}}">Next</a>&nbsp;
+		{% endif %}
+	</div>
+{% endblock %}

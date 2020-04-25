@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block contenido %}
+	<h2 class="threadTitle">
+		<span>{{thread_name}}</span>&nbsp;
+	</h2>
+	<form action="{{url_prefix}}/new_post_call" id="new_post" method="post">
+		<input type="hidden" name="thread" value="{{thread_id}}"/>
+		<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+		<textarea name="text" rows="8" cols="80" form_id="new_post"></textarea><br/>
+	<input type="submit" value="Submit"/>
+	</form>
+{% endblock %}
